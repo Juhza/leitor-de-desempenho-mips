@@ -1,0 +1,54 @@
+@using MipsPerformanceReader.Models
+@using MipsPerformanceReader.Helpers
+@using MipsPerformanceReader.Services
+@inject IPerformanceReportService PerformanceReportService;
+
+<div>
+    <div style="display: flex; justify-content: space-between;">
+        <div>
+            <h3>Resultado</h3>
+        </div>
+        <div>
+            <button type="button" class="btn btn-link" @onclick="GoBackToUpload">Voltar</button>
+        </div>
+    </div>
+    <div class="mb-3">
+        <div>
+            <p>
+                Encontrado um total de <mark>@_performanceReport?.TotalOfCycles</mark> ciclos e <mark>@_performanceReport?.TotalOfInstructions</mark> instruções.
+            </p>
+            <p>
+                Ao dividir o total de ciclos pelo total de instruções, obtemos um CPI de aproximadamente <mark>@_performanceReport?.CyclesPerInstruction.ToString("n2")</mark>.
+            </p>
+        </div>
+    </div>
+</div>
+
+@code {
+    private PerformanceReport _performanceReport = null!;
+    
+    [Parameter]
+    public HexadecimalFile File { get; set; } = null!;
+    [Parameter]
+    public EventCallback OnButtonClick { get; set; }
+    [Parameter]
+    public EventCallback OnError { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            _performanceReport = PerformanceReportService.GetReport(File);
+            await base.OnInitializedAsync();
+        }
+        catch(Exception)
+        {
+            await OnError.InvokeAsync();
+        }
+    }
+
+    private async void GoBackToUpload()
+    {
+        await OnButtonClick.InvokeAsync();
+    }
+}

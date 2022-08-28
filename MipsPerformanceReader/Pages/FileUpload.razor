@@ -1,0 +1,83 @@
+@using MipsPerformanceReader.Models
+
+@if (!_finishedUploading)
+{
+    <h3>Leitor de desempenho</h3>
+
+    <EditForm Model="_file" OnValidSubmit="UploadFile">
+        <div class="mb-3">
+            <label for="upload" class="form-label">para arquivos de memória de instrução em linguagem de máquina hexadecimal</label>
+            <InputFile class="form-control" id="upload" accept=".txt" formenctype="multipart/form-data" OnChange="OnInputFileChange"></InputFile>
+        </div>
+        
+        @if (!string.IsNullOrEmpty(_errorMessage))
+        {
+            <div class="alert alert-warning" role="alert">
+                @_errorMessage
+            </div>
+        }
+        
+        <div class="col-auto">
+            @if (_enableSubmit)
+            {
+                <button type="submit" class="btn btn-outline-secondary btn-lg">Obter relatório</button>
+            }
+            else
+            {
+                <button type="submit" class="btn btn-outline-secondary btn-lg" disabled>Obter relatório</button>
+            }
+        </div>
+    </EditForm>
+}
+else
+{
+    <Output File="_file" OnButtonClick="GetBackToUpload" OnError="ShowHexadecimalError"></Output>
+}
+
+@code {
+    private bool _finishedUploading;
+    private bool _enableSubmit;
+    private string _errorMessage = string.Empty;
+    IBrowserFile _selectedFile = null!;
+    private HexadecimalFile _file = new();
+    
+    private async Task UploadFile()
+    {
+        using (var reader = new StreamReader(_selectedFile.OpenReadStream()))
+        {
+            var fileContent = await reader.ReadToEndAsync();
+            
+            if (string.IsNullOrEmpty(fileContent))
+            {
+                _errorMessage = "Arquivo vazio.";
+                return;
+            }
+
+            _file.Content = fileContent.Split(new[] { Environment.NewLine }, StringSplitOptions.TrimEntries);
+        }
+
+        _finishedUploading = true;
+    }
+    
+    private void OnInputFileChange(InputFileChangeEventArgs e)
+    {
+        _selectedFile = e.File;
+        _enableSubmit = e.FileCount > 0;
+        StateHasChanged();
+    }
+
+    private void GetBackToUpload()
+    {
+        _finishedUploading = false;
+        _enableSubmit = false;
+        _errorMessage = string.Empty;
+        StateHasChanged();
+    }
+
+    private void ShowHexadecimalError()
+    {
+        _errorMessage = "Arquivo contém pelo menos um valor hexadecimal inválido.";
+        _finishedUploading = false;
+        StateHasChanged();
+    }
+}

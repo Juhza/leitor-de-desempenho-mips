@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32819.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MipsPerformanceReader", "MipsPerformanceReader\MipsPerformanceReader.csproj", "{ED7533FE-F53A-44DF-A9D6-195D7EB19A62}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ED7533FE-F53A-44DF-A9D6-195D7EB19A62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED7533FE-F53A-44DF-A9D6-195D7EB19A62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED7533FE-F53A-44DF-A9D6-195D7EB19A62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED7533FE-F53A-44DF-A9D6-195D7EB19A62}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {34073F3C-179E-427C-9A99-E579A628357C}
+	EndGlobalSection
+EndGlobal
