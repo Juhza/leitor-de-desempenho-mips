@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Xjkqvk0XKCsM9GekNLpIQMMLqeJasqpiEGwNp5eURTJaYrYApBp/R1+2bEfWBM/6XWhBMjQ3pJ1o94JURj0jDQ==",
+  "dgSpecHash": "IZbfAD8jsMY1yabTjzlmrZi5QhOENO86KyAyUrHYKdR4yfbFKxrbgng9GDLP93tFQPqyfXiUmo3nljqLP1/qRQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\juhza\\source\\repos\\LeitorDeDesempenho\\MipsPerformanceReader\\MipsPerformanceReader.csproj",
+  "projectFilePath": "C:\\Users\\juhza\\Documents\\GitHub\\leitor-de-desempenho-mips\\MipsPerformanceReader\\MipsPerformanceReader.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\juhza\\.nuget\\packages\\bootstrap\\5.2.0-beta1\\bootstrap.5.2.0-beta1.nupkg.sha512",
     "C:\\Users\\juhza\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.8\\microsoft.aspnetcore.authorization.6.0.8.nupkg.sha512",

@@ -2103,11 +2103,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\juhza\\source\\repos\\LeitorDeDesempenho\\MipsPerformanceReader\\MipsPerformanceReader.csproj",
+      "projectUniqueName": "C:\\Users\\juhza\\Documents\\GitHub\\leitor-de-desempenho-mips\\MipsPerformanceReader\\MipsPerformanceReader.csproj",
       "projectName": "MipsPerformanceReader",
-      "projectPath": "C:\\Users\\juhza\\source\\repos\\LeitorDeDesempenho\\MipsPerformanceReader\\MipsPerformanceReader.csproj",
+      "projectPath": "C:\\Users\\juhza\\Documents\\GitHub\\leitor-de-desempenho-mips\\MipsPerformanceReader\\MipsPerformanceReader.csproj",
       "packagesPath": "C:\\Users\\juhza\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\juhza\\source\\repos\\LeitorDeDesempenho\\MipsPerformanceReader\\obj\\",
+      "outputPath": "C:\\Users\\juhza\\Documents\\GitHub\\leitor-de-desempenho-mips\\MipsPerformanceReader\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\juhza\\AppData\\Roaming\\NuGet\\NuGet.Config",
