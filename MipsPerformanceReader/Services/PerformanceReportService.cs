@@ -18,7 +18,7 @@ public class PerformanceReportService : IPerformanceReportService
                 totalOfCycles += GetCycleCountByInstructionOpcode(opcode);
             }
 
-            return new PerformanceReport(totalOfCycles, file.Content.Length);
+            return new PerformanceReport(totalOfCycles, content.Length);
         }
         catch (Exception)
         {

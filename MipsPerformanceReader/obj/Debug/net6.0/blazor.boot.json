@@ -196,13 +196,13 @@
       "mscorlib.dll": "sha256-TYLzIm125RbnX9+RAPqJnwZhd6CnQpJcrjiMpJfZ720=",
       "netstandard.dll": "sha256-HhuK9zDkd1N7hODAEiNJ11VF8T54IgrM6hZfLHmHdqM=",
       "System.Private.CoreLib.dll": "sha256-dXaTqyg1PnXPiSwywpic1PVrd7P8Vb5tN0i0\/urdt3E=",
-      "MipsPerformanceReader.dll": "sha256-5SMLJ99K97CUAcTeR1HSt+T2P8gRBDa+oHRbZcwE8v0="
+      "MipsPerformanceReader.dll": "sha256-3dVZEz\/7bLg05HL5rR03uOhNdv88RI9tApMzhMpPe+A="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
-      "MipsPerformanceReader.pdb": "sha256-A7GUmHT0qUaBVjMHEggKiz8YADn+h0Q8MDXNsMwWLlQ="
+      "MipsPerformanceReader.pdb": "sha256-FpFuO3FpTAE3LY4igbQcnurxPo6rN2ENqPVKq4EPpxo="
     },
     "runtime": {
       "dotnet.6.0.8.3qxvdh7nuk.js": "sha256-WT60vnXnQtCNURE40qo+XSL1o4iYFvABy0NVaFhm7MI=",
