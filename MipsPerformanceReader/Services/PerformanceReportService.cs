@@ -30,14 +30,19 @@ public class PerformanceReportService : IPerformanceReportService
     {
         if (TypeOfInstruction.RType.Contains(opcode))
             return CyclesPerTypeOfInstruction.RType;
+        
         if (TypeOfInstruction.Jump.Contains(opcode))
             return CyclesPerTypeOfInstruction.Jump;
+        
         if (TypeOfInstruction.Branch.Contains(opcode))
             return CyclesPerTypeOfInstruction.Branch;
+        
         if (TypeOfInstruction.Load.Contains(opcode))
             return CyclesPerTypeOfInstruction.Load;
+        
         if (TypeOfInstruction.Store.Contains(opcode))
             return CyclesPerTypeOfInstruction.Store;
+        
         if (TypeOfInstruction.IType.Contains(opcode))
             return CyclesPerTypeOfInstruction.IType;
 
