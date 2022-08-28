@@ -50,6 +50,7 @@ else
             if (string.IsNullOrEmpty(fileContent))
             {
                 _errorMessage = "Arquivo vazio.";
+                _enableSubmit = false;
                 return;
             }
 
@@ -78,6 +79,7 @@ else
     {
         _errorMessage = "Arquivo contém pelo menos um valor hexadecimal inválido.";
         _finishedUploading = false;
+        _enableSubmit = false;
         StateHasChanged();
     }
 }
