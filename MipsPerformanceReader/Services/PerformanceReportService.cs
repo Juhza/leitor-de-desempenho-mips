@@ -5,9 +5,9 @@ namespace MipsPerformanceReader.Services;
 
 public class PerformanceReportService : IPerformanceReportService
 {
-    private int _totalOfRType = 0;
-    private int _totalOfIType = 0;
-    private int _totalOfJType = 0;
+    private int _totalOfRType;
+    private int _totalOfIType;
+    private int _totalOfJType;
 
     public PerformanceReport GetReport(HexadecimalFile file)
     {
@@ -15,7 +15,10 @@ public class PerformanceReportService : IPerformanceReportService
         {
             var content = file.AsBinary();
             var totalOfCycles = 0;
-         
+            
+            _totalOfRType = 0;
+            _totalOfIType = 0;
+            _totalOfJType = 0;
 
             foreach (var binaryValue in content)
             {
