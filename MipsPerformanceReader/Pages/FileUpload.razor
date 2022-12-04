@@ -1,8 +1,16 @@
 @using MipsPerformanceReader.Models
+@using MipsPerformanceReader.Utils
 
 @if (!_finishedUploading)
 {
-    <h3>Leitor de desempenho</h3>
+    @switch (ReportType){
+        case ReportType.PerformanceReader:
+            <h3>Leitor de desempenho</h3>
+            break;
+        case ReportType.InstructionReordering:
+            <h3>Reordenação de instruções</h3>
+            break;
+    }
 
     <EditForm Model="_file" OnValidSubmit="UploadFile">
         <div class="mb-3">
@@ -31,7 +39,14 @@
 }
 else
 {
-    <Output File="_file" OnButtonClick="GetBackToUpload" OnError="ShowHexadecimalError"></Output>
+    @switch (ReportType){
+        case ReportType.PerformanceReader:
+            <PerformanceReaderOutput File="_file" OnButtonClick="GetBackToUpload" OnError="ShowHexadecimalError"></PerformanceReaderOutput>
+            break;
+        case ReportType.InstructionReordering:
+            <InstructionReorderingOutput File="_file" OnButtonClick="GetBackToUpload" OnError="ShowHexadecimalError"></InstructionReorderingOutput>
+            break;
+    }
 }
 
 @code {
@@ -41,6 +56,9 @@ else
     IBrowserFile _selectedFile = null!;
     private HexadecimalFile _file = new();
     
+    [Parameter]
+    public ReportType ReportType { get; set; }
+
     private async Task UploadFile()
     {
         using (var reader = new StreamReader(_selectedFile.OpenReadStream()))

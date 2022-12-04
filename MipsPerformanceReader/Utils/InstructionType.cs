@@ -1,6 +1,6 @@
 namespace MipsPerformanceReader.Utils;
 
-public static class TypeOfInstruction
+public static class InstructionType
 {
     public static readonly string[] RType =
     {

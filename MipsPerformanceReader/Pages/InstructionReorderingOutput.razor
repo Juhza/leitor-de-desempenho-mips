@@ -1,0 +1,52 @@
+﻿@using MipsPerformanceReader.Models
+@using MipsPerformanceReader.Services
+@inject IInstructionReorderingService _instructionReorderingService
+@inject IJSRuntime JS
+
+<div>
+    <div style="display: flex; justify-content: space-between;">
+        <div>
+            <h3>Resultado</h3>
+        </div>
+        <div>
+            <button type="button" class="btn btn-link" @onclick="GoBackToUpload">Voltar</button>
+        </div>
+    </div>
+    <div class="mb-3">
+        <textarea>
+            @_fileContent
+        </textarea>
+    </div>
+</div>
+
+@code {
+    private List<BinaryInstruction> _binaryInstructions = null!;
+    private string _fileContent = string.Empty;
+
+    [Parameter]
+    public HexadecimalFile File { get; set; } = null!;
+    [Parameter]
+    public EventCallback OnButtonClick { get; set; }
+    [Parameter]
+    public EventCallback OnError { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            _binaryInstructions = _instructionReorderingService.ReorderInstructions(File);
+            _fileContent = string.Join(" ", _binaryInstructions);
+
+            await base.OnInitializedAsync();
+        }
+        catch (Exception)
+        {
+            await OnError.InvokeAsync();
+        }
+    }
+
+    private async void GoBackToUpload()
+    {
+        await OnButtonClick.InvokeAsync();
+    }
+}

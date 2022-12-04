@@ -1,7 +1,7 @@
 @using MipsPerformanceReader.Models
 @using MipsPerformanceReader.Helpers
 @using MipsPerformanceReader.Services
-@inject IPerformanceReportService PerformanceReportService;
+@inject IPerformanceReportService _performanceReportService;
 
 <div>
     <div style="display: flex; justify-content: space-between;">
@@ -47,7 +47,7 @@
     {
         try
         {
-            _performanceReport = PerformanceReportService.GetReport(File);
+            _performanceReport = _performanceReportService.GetReport(File);
             await base.OnInitializedAsync();
         }
         catch(Exception)

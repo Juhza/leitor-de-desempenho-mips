@@ -36,37 +36,37 @@ public class PerformanceReportService : IPerformanceReportService
 
     private int GetCycleCountByInstructionOpcode(string opcode)
     {
-        if (TypeOfInstruction.RType.Contains(opcode))
+        if (InstructionType.RType.Contains(opcode))
         {
             _totalOfRType += 1;
             return CyclesPerTypeOfInstruction.RType;
         }
 
-        if (TypeOfInstruction.Jump.Contains(opcode))
+        if (InstructionType.Jump.Contains(opcode))
         {
             _totalOfJType += 1;
             return CyclesPerTypeOfInstruction.Jump;
         }
         
-        if (TypeOfInstruction.Branch.Contains(opcode))
+        if (InstructionType.Branch.Contains(opcode))
         {
             _totalOfIType += 1;
             return CyclesPerTypeOfInstruction.Branch;
         }
         
-        if (TypeOfInstruction.Load.Contains(opcode))
+        if (InstructionType.Load.Contains(opcode))
         {
             _totalOfIType += 1;
             return CyclesPerTypeOfInstruction.Load;
         }
         
-        if (TypeOfInstruction.Store.Contains(opcode))
+        if (InstructionType.Store.Contains(opcode))
         {
             _totalOfIType += 1;
             return CyclesPerTypeOfInstruction.Store;
         }
         
-        if (TypeOfInstruction.IType.Contains(opcode))
+        if (InstructionType.IType.Contains(opcode))
         {
             _totalOfIType += 1;
             return CyclesPerTypeOfInstruction.IType;
