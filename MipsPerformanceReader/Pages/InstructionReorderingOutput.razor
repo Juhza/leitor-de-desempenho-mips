@@ -12,16 +12,20 @@
             <button type="button" class="btn btn-link" @onclick="GoBackToUpload">Voltar</button>
         </div>
     </div>
-    <div class="mb-3">
-        <textarea>
+    <div class="d-flex justify-content-between align-items-center mb-3 mt-2">
+        <textarea style="height: 600px; width: 600px;">
             @_fileContent
         </textarea>
+        <div>
+            <h4>NOPs adicionados: @_nopsAdded</h4>
+        </div>
     </div>
 </div>
 
 @code {
     private List<BinaryInstruction> _binaryInstructions = null!;
     private string _fileContent = string.Empty;
+    private int _nopsAdded = 0;
 
     [Parameter]
     public HexadecimalFile File { get; set; } = null!;
@@ -34,8 +38,12 @@
     {
         try
         {
-            _binaryInstructions = _instructionReorderingService.ReorderInstructions(File);
-            _fileContent = string.Join(" ", _binaryInstructions);
+            _binaryInstructions = _instructionReorderingService.AddNops(File);
+
+            var binaryValues = _binaryInstructions.Select(instruction => string.Join(string.Empty, instruction.BinaryFields));
+            _fileContent = string.Join("\n", binaryValues);
+
+            _nopsAdded = binaryValues.Count(instruction => instruction == "00000000000000000000000000000000");
 
             await base.OnInitializedAsync();
         }

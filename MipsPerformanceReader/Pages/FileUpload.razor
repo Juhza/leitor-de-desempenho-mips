@@ -39,13 +39,13 @@
 }
 else
 {
-    @switch (ReportType){
-        case ReportType.PerformanceReader:
-            <PerformanceReaderOutput File="_file" OnButtonClick="GetBackToUpload" OnError="ShowHexadecimalError"></PerformanceReaderOutput>
-            break;
-        case ReportType.InstructionReordering:
-            <InstructionReorderingOutput File="_file" OnButtonClick="GetBackToUpload" OnError="ShowHexadecimalError"></InstructionReorderingOutput>
-            break;
+    @if (ReportType == ReportType.PerformanceReader)
+    {
+        <PerformanceReaderOutput File="_file" OnButtonClick="GetBackToUpload" OnError="ShowHexadecimalError"></PerformanceReaderOutput>
+    }
+    else 
+    {
+        <InstructionReorderingOutput File="_file" OnButtonClick="GetBackToUpload" OnError="ShowHexadecimalError"></InstructionReorderingOutput>
     }
 }
 

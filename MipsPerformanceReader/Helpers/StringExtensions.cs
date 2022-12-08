@@ -20,30 +20,30 @@ public static class StringExtensions
 
     public static string[] BreakBinaryInstruction(this string binaryValue)
     {
-        var opcode = binaryValue.Substring(0, 5);
+        var opcode = binaryValue.Substring(0, 6);
 
         if (InstructionType.RType.Contains(opcode))
         {
-            var rs = binaryValue.Substring(6, 10);
-            var rt = binaryValue.Substring(11, 15);
-            var rd = binaryValue.Substring(16, 20);
-            var shamt = binaryValue.Substring(21, 25);
-            var funct = binaryValue.Substring(26, 31);
+            var rs = binaryValue.Substring(6, 5);
+            var rt = binaryValue.Substring(11, 5);
+            var rd = binaryValue.Substring(16, 5);
+            var shamt = binaryValue.Substring(21, 5);
+            var funct = binaryValue.Substring(26, 6);
 
-            var values = new[] { opcode, rs, rt, rd, shamt, funct };
+            return new[] { opcode, rs, rt, rd, shamt, funct };
         }
         else if (InstructionType.IType.Contains(opcode) || InstructionType.Store.Contains(opcode) || 
                  InstructionType.Load.Contains(opcode) || InstructionType.Branch.Contains(opcode))
         {
-            var rs = binaryValue.Substring(6, 10);
-            var rt = binaryValue.Substring(11, 15);
-            var immediate = binaryValue.Substring(16, 31);
+            var rs = binaryValue.Substring(6, 5);
+            var rt = binaryValue.Substring(11, 5);
+            var immediate = binaryValue.Substring(16, 16);
 
             return new[] { opcode, rs, rt, immediate };
         }
         else if (InstructionType.Jump.Contains(opcode))
         {
-            var targetAddress = binaryValue.Substring(6, 31);
+            var targetAddress = binaryValue.Substring(6, 26);
 
             return new[] { opcode, targetAddress };
         }
