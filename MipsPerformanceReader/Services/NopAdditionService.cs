@@ -2,7 +2,7 @@
 
 namespace MipsPerformanceReader.Services
 {
-    public class InstructionReorderingService : IInstructionReorderingService
+    public class NopAdditionService : INopAdditionService
     {
         private List<BinaryInstruction> _instructions = null!;
         private BinaryInstruction _nop = new BinaryInstruction(binary: "00000000000000000000000000000000");

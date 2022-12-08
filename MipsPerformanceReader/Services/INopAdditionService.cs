@@ -2,7 +2,7 @@
 
 namespace MipsPerformanceReader.Services
 {
-    public interface IInstructionReorderingService
+    public interface INopAdditionService
     {
         List<BinaryInstruction> AddNops(HexadecimalFile file);
     }
